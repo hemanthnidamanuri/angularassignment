@@ -7,6 +7,7 @@ import { LocalComponent } from './local/local.component';
 import { RouterModule } from "@angular/router";
 import {routes} from "./routes";
 import { TitlepipePipe } from './titlepipe.pipe';
+import {FilterPipeModule} from "ngx-filter-pipe";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TitlepipePipe } from './titlepipe.pipe';
   imports: [
     BrowserModule,
     [RouterModule.forRoot(routes)],
-    FormsModule
+    FormsModule,
+    FilterPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

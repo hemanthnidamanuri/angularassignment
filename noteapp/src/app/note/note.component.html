@@ -24,13 +24,13 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="onCreate()">CreateNote</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">DeleteNote</a>
+        <a class="nav-link" (click)="deleteContent()">DeleteNote</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" (click)="saveNote()">Save</a>
+      </li>
+      <li class="nav-item">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" [(ngModel)]="userFilter.search" aria-label="Search">
       </li>
     </ul>
   </div>
@@ -38,8 +38,12 @@
 </div>
 <div class=" col-md-2">
   <ul class="nav nav-pills nav-stacked anyClass">
-    <li class="nav-item" *ngFor="let title of titleStore" >
-      <a class="nav-link">{{tempname | titlepipe: tempname}}</a>
+    <li>
+      <a class="nav-link"  (click)="onCreate()">newnote</a>
+      <span>{{tempname |titlepipe: tempname}}</span>
+    </li>
+    <li class="nav-item" *ngFor="let title of content | filterBy: userFilter.search" >
+      <a class="nav-link" (click)="contentDisplay(title)">{{title}}</a>
     </li>
   </ul>
 </div>
